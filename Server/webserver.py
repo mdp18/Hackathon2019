@@ -5,7 +5,6 @@ from multiprocessing import Lock
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-global playersPlaying
 playersPlaying = 0
 
 joinLock = Lock()
@@ -28,6 +27,7 @@ def gamerequest_handler():
 
     # Check if game is open
     joinLock.acquire()
+    global playersPlaying
     print('[WebSocket] Client is requesting to join.')
     if playersPlaying < 4:
         print('[WebSocket] Letting them join.')
