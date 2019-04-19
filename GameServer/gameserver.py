@@ -3,10 +3,10 @@ import thread
 import time
 
 def on_message(ws, message):
-    print(f"[WebSocket] Message: f{message}")
+    print("[WebSocket] Message: %s" % (message))
 
 def on_error(ws, error):
-    print(f"[WebSocket] Error: {error}")
+    print("[WebSocket] Error: %s" % (error))
 
 def on_close(ws):
     print("[WebSocket] Closed")
