@@ -3,10 +3,11 @@
 // Client contains all functionality for basic gameplay
 // API https://socket.io/docs/client-api/
 
-console.log('[WebSocket] Trying to connect...')
+console.log('[WebSocket] Trying to connect...');
 var socket = io.connect('http://165.22.143.177:80');
-console.log('[WebSocket] Connected.')
+console.log('[WebSocket] Connected.');
 socket.on('connect', function() {
+    console.log('[WebSocket] Sending game request.');
     socket.emit('gamerequest');
 });
 

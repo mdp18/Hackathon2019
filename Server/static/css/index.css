@@ -19,26 +19,4 @@ canvas {
     background-color: blue;
   }
 
-  #mobile-right-screen{
-      width: 50%;
-      display: inline-block;
-      background-color: red;
-  }
-
-  #mobile-left-screen{
-      width: 50%;
-      display: inline-block;
-      background-color: white;
-  }
-  .mobile {
-      display: block;
-  }
-  #controls{
-    width: 50%;
-    height: auto;
-  }
-  #actions{
-    width: 50%;
-    height: auto;
-  }
 }
