@@ -49,8 +49,8 @@ function setup() {
   
   p4x = screenWidth - 30;
   p4y = 0;
-  
-  
+
+
   createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
   
   noStroke(); //disables the drawing of the outline of the ellipse.
@@ -74,19 +74,19 @@ function draw() {
   drawPlayers()
   keyChecks();
   moveBall();
-  
 }
+
 function drawPlayers() {
   image(player1,p1x, p1y);
   image(player2,p2x, p2y);
   image(player3,p3x, p3y);
   image(player4,p4x, p4y);
-  
   player1.resize(100, 30);
   player2.resize(30, 100);
   player3.resize(100, 30);
   player4.resize(30, 100);
 }
+
 function keyChecks(){ //use for testing
   if(keyIsDown(UP_ARROW)) {
     if(p2y != 0) {
