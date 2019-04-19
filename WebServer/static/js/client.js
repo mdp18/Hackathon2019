@@ -7,15 +7,7 @@ var socket = io('ws://165.22.143.177:5122');
 function onConnect() {
   console.log('[WebSocket] Connected!')
 }
-
-function onEvent(data) {
-  console.log(`[WebSocket] Data: ${data}`)
-}
-
-function onDisconnect() {
-  console.log('[WebSocket] Disconnect!')
-}
-
-socket.on('connect', onConnect);
-socket.on('event', onEvent);
-socket.on('disconnect', onDisconnect);
+var ws = new WebSocket('ws://165.22.143.177:5122');
+  ws.onmessage = function (event) {
+    console.log(event.data);
+};
