@@ -6,8 +6,6 @@
 
   if($(window).width() >= 900) {
     console.log("FUCKS");
-    
-    
   }
   
   if($(window).width() >= 900) {
