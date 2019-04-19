@@ -1,0 +1,4 @@
+chmod +x ../GameServer/run
+../GameServer/run
+chmod +x run
+./run
