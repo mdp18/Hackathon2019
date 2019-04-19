@@ -1,1 +1,1 @@
-nohup python gameserver.py
+nohup python3 gameserver.py
