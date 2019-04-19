@@ -15,20 +15,16 @@ const ws = new WebSocket('ws://http://165.22.143.177:5122/');
 
 // Websocket initialized
 ws.on('open', function open() {
-  console.log('connected');
+  console.log('[WebSocket] Connected!');
   ws.send(Date.now());
 });
 
 // Close handler
 ws.on('close', function close() {
-  console.log('disconnected');
+  console.log('[WebSocket] Disconnected!');
 });
 
 // Message handler
 ws.on('message', function incoming(data) {
-  console.log(`Roundtrip time: ${Date.now() - data} ms`);
-
-  setTimeout(function timeout() {
-    ws.send(Date.now());
-  }, 500);
+  console.log(`[WebSocket] Message: ${data}`);
 });

@@ -1,13 +1,18 @@
 //Controller functionality
-function onLeftButtonClick() {
+//Call client functions
 
+function onLeftButtonClick() {
+    
 }
+
 function onRightButtonClick() {
 
 }
+
 function aButtonClick() {
 
 }
+
 function bButtonClick() {
     
 }
