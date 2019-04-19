@@ -4,7 +4,7 @@
 
 console.log('[WebSocket] Trying to connect...')
 var socket = io.connect('http://165.22.143.177:80');
-
+console.log('[WebSocket] Connected.')
 socket.on('connect', function() {
     socket.emit('my event', {data: 'I\'m connected!'});
 });

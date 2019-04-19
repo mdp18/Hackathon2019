@@ -6,6 +6,8 @@ import ssl
 app = Flask(__name__)
 socketio = SocketIO(app)
 
+
+
 @app.route('/', methods=['GET'])
 def index():
 	return render_template('index.html')
@@ -13,6 +15,10 @@ def index():
 @socketio.on('connect')
 def connect_handler():
     print('[WebSocket] Client connected!')
+
+@socketio.on('disconnect')
+def disconnect_handler():
+    print('[WebSocket] Client disconnected.')
 
 @socketio.on('message')
 def handle_message(message):

@@ -1,3 +1,18 @@
+ /* EVERYTHING BELOW IS FOR COMPUTER SCREEN */
+.mobile {
+  display: none;
+}
+
+body{
+  background-color: green;
+}
+
+canvas {
+  padding: 0;
+  margin: auto;
+  display: block;
+}
+
 
 /* MEDIA CONTENT FOR PHONE ONLY */
 @media only screen and (max-width: 900px) {
@@ -22,42 +37,4 @@
   canvas {
       display: none;
   }
-}
-
-@media only screen and (min-width: 900px) {
-  body{
-    background-color: blue;
-  }
-
-  #mobile-right-screen{
-      width: 50%;
-      display: inline-block;
-      float:right;
-  }
-
-  #mobile-left-screen{
-      width: 50%;
-      float: left;
-  }
-  .mobile {
-      display: block;
-  }
-
-  canvas {
-      display: none;
-  }
-}
- /* EVERYTHING BELOW IS FOR COMPUTER SCREEN */
-.mobile {
-  display: none;
-}
-
-body{
-  background-color: green;
-}
-
-canvas {
-  padding: 0;
-  margin: auto;
-  display: block;
 }
