@@ -35,7 +35,7 @@ function setup() {
   player4 = loadImage('../static/assets/Player_4_VBar.png');
   gameBG = loadImage('../static/assets/Game_1_Background.png');
   
-  screenWidth = window.innerWidth;
+  screenWidth = window.innerHeight;
   screenHeight = window.innerHeight;
   
   p1x = 0;

@@ -1,10 +1,7 @@
 body{
-    background-color: green
-}
-.webpage {
-
+    background-color: green;
 }
 
-#game-screen{
-    
+canvas {
+    display: block;
 }
