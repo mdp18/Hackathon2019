@@ -9,6 +9,10 @@ console.log('[WebSocket] Connected.');
 socket.emit('gamerequest');
 console.log('[WebSocket] Sending game request.');
 
+socket.on('welcome', function() {
+  console.log("[WebSocket] We are welcome :D");
+});
+
 socket.on('roomfull', function() {
   console.log('[WebSocket] Room is full :(');
   // TODO: Tell UI room is full

@@ -14,6 +14,7 @@ def index():
 
 @socketio.on('connect')
 def connect_handler():
+    emit('welcome')
     print('[WebSocket] Client connected!')
 
 @socketio.on('disconnect')

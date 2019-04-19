@@ -1,16 +1,6 @@
  /* EVERYTHING BELOW IS FOR COMPUTER SCREEN */
-.mobile {
-  display: none;
-}
-
 body{
   background-color: green;
-}
-
-canvas {
-  padding: 0;
-  margin: auto;
-  display: block;
 }
 
 /* MEDIA CONTENT FOR PHONE ONLY */
@@ -18,5 +8,4 @@ canvas {
   body{
     background-color: blue;
   }
-
 }
