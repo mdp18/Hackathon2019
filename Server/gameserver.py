@@ -20,9 +20,6 @@ def client_thread(*args):
     ws.close()
     print("[WebSocket] Disconnecting...")
 
-def on_open(ws):     
-    _thread.start_new_thread(client_thread, ())
-
 if __name__ == "__main__":
     # Start websocket server
     start_server = websockets.serve(on_join, 'localhost', 5122)
