@@ -86,6 +86,7 @@ function drawPlayers() {
   player2.resize(30, 100);
   player3.resize(100, 30);
   player4.resize(30, 100);
+  player1.
 }
 
 function keyChecks(){ //use for testing
