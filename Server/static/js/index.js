@@ -13,12 +13,12 @@
   }
 
   document.addEventListener("orientationchange", function(event){
-    switch(window.orientation) 
-    {  
-        case -90: case 90:
-            console.log("Landscape")
-            break; 
-        default:
-            console.log("portrait")
-    }
-});
+        switch(window.orientation) 
+        {  
+            case -90: case 90:
+                console.log("Landscape")
+                break; 
+            default:
+                console.log("portrait")
+        }
+    });

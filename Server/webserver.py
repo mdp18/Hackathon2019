@@ -5,7 +5,9 @@ from multiprocessing import Lock
 app = Flask(__name__)
 socketio = SocketIO(app)
 
+global playersPlaying
 playersPlaying = 0
+
 joinLock = Lock()
 
 @app.route('/', methods=['GET'])
