@@ -1,5 +1,5 @@
 import websocket
-import thread
+import _thread
 import time
 
 def on_message(ws, message):
@@ -20,7 +20,7 @@ def client_thread(*args):
     print("[WebSocket] Disconnecting...")
 
 def on_open(ws):     
-    thread.start_new_thread(client_thread, ())
+    _thread.start_new_thread(client_thread, ())
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
