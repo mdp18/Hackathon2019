@@ -13,7 +13,6 @@ canvas {
   display: block;
 }
 
-
 /* MEDIA CONTENT FOR PHONE ONLY */
 @media only screen and (max-width: 900px) {
   body{
@@ -23,18 +22,23 @@ canvas {
   #mobile-right-screen{
       width: 50%;
       display: inline-block;
-      float:right;
+      background-color: red;
   }
 
   #mobile-left-screen{
       width: 50%;
-      float: left;
+      display: inline-block;
+      background-color: white;
   }
   .mobile {
       display: block;
   }
-
-  canvas {
-      display: none;
+  #controls{
+    width: 50%;
+    height: auto;
+  }
+  #actions{
+    width: 50%;
+    height: auto;
   }
 }
