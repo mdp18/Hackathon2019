@@ -14,9 +14,9 @@ let player4; //Player 4 vertical image bar
 let p4x;
 let p4y;
 
-let gameBG; //game background image variable
-let screenWidth; //
-let screenHeight;
+let gameBG; //Game background image variable
+let screenWidth; //Screen width variable recieved from inner
+let screenHeight; //Screen height var recieved from inner
 
 let rad = 20; // Width of the shape
 let xpos, ypos; // Starting position of shape
@@ -29,11 +29,11 @@ let ydirection = 1; // Top to Bottom
 
 function setup() {
   
-  player1 = loadImage('Player_1_Bar.png');
-  player2 = loadImage('Player_2_VBar.png');
-  player3 = loadImage('Player_3_Bar.png');
-  player4 = loadImage('Player_4_VBar.png');
-  gameBG = loadImage('Game_1_Background.png');
+  player1 = loadImage('../static/assets/Player_1_Bar.png');
+  player2 = loadImage('../static/assets/Player_2_VBar.png');
+  player3 = loadImage('../static/assets/Player_3_Bar.png');
+  player4 = loadImage('../static/assets/Player_4_VBar.png');
+  gameBG = loadImage('../static/assets/Game_1_Background.png');
   
   screenWidth = window.innerWidth;
   screenHeight = window.innerHeight;
@@ -51,7 +51,7 @@ function setup() {
   p4y = 0;
   
   
-  createCanvas(screenWidth, screenHeight);
+  createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
   
   noStroke();
   frameRate(60);

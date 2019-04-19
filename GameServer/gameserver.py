@@ -1,4 +1,4 @@
-import websocket
+import websockets
 import _thread
 import time
 
