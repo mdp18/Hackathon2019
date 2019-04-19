@@ -3,9 +3,11 @@ body{
 }
 
 #mobile-right-screen{
-    
+    width: 50%;
+    display: inline-block;
 }
 
 #mobile-left-screen{
-
+    width: 50%;
+    display: inline-block;
 }
