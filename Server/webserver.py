@@ -10,6 +10,10 @@ socketio = SocketIO(app)
 def index():
 	return render_template('index.html')
 
+@socketio.on('connect')
+def connect_handler():
+    print('[WebSocket] Client connected!')
+
 @socketio.on('message')
 def handle_message(message):
     print('[WebSocket] received message: ' + message)
