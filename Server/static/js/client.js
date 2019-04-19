@@ -2,7 +2,9 @@
 //The websocket server is the server for all gameplay functionality
 //Client contains all functionality for basic gameplay
 
-var socket = io.connect('http://' + document.domain + ':' + location.port);
-    socket.on('connect', function() {
-        socket.emit('my event', {data: 'I\'m connected!'});
-    });
+console.log('[WebSocket] Trying to connect...')
+var socket = io.connect('http://165.22.143.177:80');
+
+socket.on('connect', function() {
+    socket.emit('my event', {data: 'I\'m connected!'});
+});
