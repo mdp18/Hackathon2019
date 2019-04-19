@@ -1,6 +1,7 @@
 import websockets
 import _thread
 import time
+import asyncio
 
 def on_join(websocket, path):
     print("[WebSocket] Joined")
@@ -23,8 +24,6 @@ def on_open(ws):
     _thread.start_new_thread(client_thread, ())
 
 if __name__ == "__main__":
-    websocket.enableTrace(True)
-
     # Start websocket server
     start_server = websockets.serve(on_join, 'localhost', 5122)
     print("[WebSocket] Server started!")

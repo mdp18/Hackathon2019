@@ -53,9 +53,12 @@ function setup() {
   
   createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
   
-  noStroke();
-  frameRate(60);
-  ellipseMode(RADIUS);
+  noStroke(); //disables the drawing of the outline of the ellipse.
+  
+  frameRate(60); //sets frame rate to 60fps. Please Keep!
+  
+  ellipseMode(RADIUS); //Possibly don't need??
+  
   // Set the starting position of the shape
   xpos = width / 2;
   ypos = height / 2;
@@ -66,24 +69,25 @@ function draw() {
   gameBG.resize(300,300);
   background(220);
   image(gameBG, (screenWidth/2-150), (screenHeight/2 - 150))
-  xpos = xpos + xspeed * xdirection;
-  ypos = ypos + yspeed * ydirection;
+  
+
+  drawPlayers()
+  keyChecks();
+  moveBall();
+  
+}
+function drawPlayers() {
   image(player1,p1x, p1y);
   image(player2,p2x, p2y);
   image(player3,p3x, p3y);
   image(player4,p4x, p4y);
+  
   player1.resize(100, 30);
   player2.resize(30, 100);
   player3.resize(100, 30);
   player4.resize(30, 100);
-  if (xpos > width - rad || xpos < rad) {
-    xdirection *= -1;
-  }
-  if (ypos > height - rad || ypos < rad) {
-    ydirection *= -1;
-  }
-  ellipse(xpos, ypos, rad, rad);
-  
+}
+function keyChecks(){ //use for testing
   if(keyIsDown(UP_ARROW)) {
     if(p2y != 0) {
       p2y = p2y-5;
@@ -104,4 +108,19 @@ function draw() {
       p1x = p1x+5;
     }
   }
+}
+
+function moveBall(){
+  if (xpos > width - rad || xpos < rad) {
+    xdirection *= -1;
+  }
+  if (ypos > height - rad || ypos < rad) {
+    ydirection *= -1;
+  }
+
+  xpos = xpos + xspeed * xdirection;
+  ypos = ypos + yspeed * ydirection;
+  
+  
+  ellipse(xpos, ypos, rad, rad);
 }
