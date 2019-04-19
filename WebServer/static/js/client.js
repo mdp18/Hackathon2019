@@ -5,9 +5,17 @@
 var socket = io('http://localhost');
 
 function onConnect() {
-  
+  console.log('[WebSocket] Connected!')
 }
 
-socket.on('connect', function(){});
-socket.on('event', function(data){});
-socket.on('disconnect', function(){});
+function onEvent(data) {
+  console.log(`[WebSocket] Data: ${data}`)
+}
+
+function onDisconnect() {
+  console.log('[WebSocket] Disconnect!')
+}
+
+socket.on('connect', onConnect);
+socket.on('event', onEvent);
+socket.on('disconnect', onDisconnect);
