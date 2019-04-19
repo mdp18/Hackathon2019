@@ -2,10 +2,20 @@
 body{
   background-color: green;
 }
+.mobile{
+  display: hidden;
+}
 
 /* MEDIA CONTENT FOR PHONE ONLY */
 @media only screen and (max-width: 900px) {
   body{
     background-color: blue;
+  }
+  .mobile{
+    display: block;
+  }
+  #controls{
+    width: 150px;
+    height: auto;
   }
 }
