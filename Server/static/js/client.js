@@ -6,10 +6,8 @@
 console.log('[WebSocket] Trying to connect...');
 var socket = io.connect('http://165.22.143.177:80');
 console.log('[WebSocket] Connected.');
-socket.on('connect', function() {
-    console.log('[WebSocket] Sending game request.');
-    socket.emit('gamerequest');
-});
+socket.emit('gamerequest');
+console.log('[WebSocket] Sending game request.');
 
 socket.on('roomfull', function() {
   console.log('[WebSocket] Room is full :(');
