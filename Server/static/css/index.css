@@ -1,9 +1,6 @@
 
 /* MEDIA CONTENT FOR PHONE ONLY */
 @media only screen and (max-width: 900px) {
-  body {
-    background-color: lightblue;
-  }
   body{
     background-color: blue;
   }
