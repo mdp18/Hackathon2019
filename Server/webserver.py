@@ -1,5 +1,5 @@
 from flask import Flask, flash, request, render_template
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 from multiprocessing import Lock
 
 app = Flask(__name__)
