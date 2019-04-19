@@ -4,13 +4,6 @@
 
 'use strict';
 
-const WebSocket = require('./ws-6.2.1/websocket');
-WebSocket.Server = require('./ws-6.2.1/websocket-server');
-WebSocket.Receiver = require('./ws-6.2.1/receiver');
-WebSocket.Sender = require('./ws-6.2.1/sender');
-
-module.exports = WebSocket;
-
 const ws = new WebSocket('ws://http://165.22.143.177:5122/');
 
 // Websocket initialized

@@ -17,7 +17,7 @@ def client_thread(*args):
         ws.send("Hello %d" % i)
     time.sleep(1)
     ws.close()
-    print "[WebSocket] Disconnecting..."
+    print("[WebSocket] Disconnecting...")
 
 def on_open(ws):     
     thread.start_new_thread(client_thread, ())
