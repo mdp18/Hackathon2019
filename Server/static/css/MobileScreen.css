@@ -5,11 +5,12 @@ body{
 #mobile-right-screen{
     width: 50%;
     display: inline-block;
+    float:right;
 }
 
 #mobile-left-screen{
     width: 50%;
-    display: inline-block;
+    float: left;
 }
 .mobile {
     display: block;
