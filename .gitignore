@@ -1,5 +1,6 @@
 WebServer/__pycache__/
 __pycache__/
+.vscode/
 *.DS_Store
 testingJS.js
 *.out

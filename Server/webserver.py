@@ -7,7 +7,7 @@ socketio = SocketIO(app)
 
 playersPlaying = 0
 
-joinLock = Lock()
+playerLock = Lock()
 
 @app.route('/', methods=['GET'])
 def index():
@@ -22,21 +22,26 @@ def connect_handler():
 def disconnect_handler():
     print('[WebSocket] Client disconnected.')
 
+    playerLock.acquire()
+    if playersPlaying > 0:
+        playersPlaying = playersPlaying - 1
+    playerLock.release()
+
 @socketio.on('gamerequest')
 def gamerequest_handler():
 
     # Check if game is open
-    joinLock.acquire()
+    playerLock.acquire()
     global playersPlaying
     print('[WebSocket] Client is requesting to join.')
     if playersPlaying < 4:
         print('[WebSocket] Letting them join.')
         playersPlaying = playersPlaying + 1
-        emit('canplay', { player: playersPlaying })
+        emit('canplay', { 'player': playersPlaying })
     else:
         print('[WebSocket] Room is full, denial >:D')
         emit('roomfull')
-    joinLock.release()
+    playerLock.release()
 
 if __name__ == '__main__':
     app.debug = True
