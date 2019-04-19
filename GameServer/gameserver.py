@@ -26,7 +26,7 @@ if __name__ == "__main__":
     websocket.enableTrace(True)
 
     # Start websocket server
-    ws = websocket.WebSocketApp("ws://0.0.0.0:5122/",
+    ws = websocket.WebSocketApp("ws://127.0.0.1:5122/",
                                 on_message = on_message,
                                 on_error = on_error,
                                 on_close = on_close)
