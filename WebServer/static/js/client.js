@@ -4,7 +4,6 @@
 
 var socket = io('ws://165.22.143.177:5122');
 
-
 function onConnect() {
   console.log('[WebSocket] Connected!')
 }
