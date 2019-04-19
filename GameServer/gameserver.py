@@ -2,8 +2,8 @@ import websocket
 import _thread
 import time
 
-def on_message(ws, message):
-    print("[WebSocket] Message: %s" % (message))
+def on_join(websocket, path):
+    print("[WebSocket] Joined")
 
 def on_error(ws, error):
     print("[WebSocket] Error: %s" % (error))
@@ -26,11 +26,9 @@ if __name__ == "__main__":
     websocket.enableTrace(True)
 
     # Start websocket server
-    ws = websocket.WebSocketApp("ws://127.0.0.1:5122/",
-                                on_message = on_message,
-                                on_error = on_error,
-                                on_close = on_close)
-    ws.on_open = on_open
-
+    start_server = websockets.serve(on_join, 'localhost', 5122)
     print("[WebSocket] Server started!")
-    ws.run_forever()
+
+    asyncio.get_event_loop().run_until_complete(start_server)
+    asyncio.get_event_loop().run_forever()
+

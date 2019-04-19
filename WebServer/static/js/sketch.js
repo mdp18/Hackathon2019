@@ -1,21 +1,21 @@
-let player1;
+let player1; //Player 1 horizontal image bar
 let p1x;
 let p1y;
 
-let player2;
+let player2; //Player 2 vertical image bar
 let p2x;
 let p2y;
 
-let player3; 
+let player3; //Player 3 image bar
 let p3x;
 let p3y;
 
-let player4;
+let player4; //Player 4 vertical image bar
 let p4x;
 let p4y;
 
-let gameBG;
-let screenWidth;
+let gameBG; //game background image variable
+let screenWidth; //
 let screenHeight;
 
 let rad = 20; // Width of the shape
