@@ -23,6 +23,7 @@ def disconnect_handler():
     print('[WebSocket] Client disconnected.')
 
     playerLock.acquire()
+    global playersPlaying
     if playersPlaying > 0:
         playersPlaying = playersPlaying - 1
     playerLock.release()
