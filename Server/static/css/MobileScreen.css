@@ -11,3 +11,10 @@ body{
     width: 50%;
     display: inline-block;
 }
+.mobile {
+    display: block;
+}
+
+canvas {
+    display: none;
+}
