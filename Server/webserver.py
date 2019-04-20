@@ -112,7 +112,7 @@ def gamerequest_handler():
 def paddle_handler():
     pass
 
-def run_physics(args);
+def run_physics(args):
     global physics
     physics.run(args)
 
