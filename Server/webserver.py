@@ -1,6 +1,5 @@
 from flask import Flask, flash, request, render_template
-from flask_login import current_user
-from flask.ext.login import LoginManager
+from flask_login import current_user, LoginManager
 from flask_socketio import SocketIO, emit, disconnect
 from multiprocessing import Lock
 import functools

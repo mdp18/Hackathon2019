@@ -27,6 +27,7 @@ canvas{
   #controls{
     width: 50%;
     height: auto;
+    float: left;
   }
   canvas {
     display: none;
@@ -34,5 +35,6 @@ canvas{
   #control-a {
     width: 50%;
     height: auto;
+    fl
   }
 }
