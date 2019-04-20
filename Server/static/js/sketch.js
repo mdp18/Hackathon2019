@@ -16,8 +16,8 @@ class Player {
 	}
 }
 
-let playerId = -1;
-let playerArray = [];
+var playerId = -1;
+var playerArray = [];
 
 let gameBG; //Game background image variable
 let screenWidth; //Screen width variable recieved from inner
@@ -50,7 +50,6 @@ function setup() {
 	playerArray.push(player2);
 	playerArray.push(player3);
 	playerArray.push(player4);
-
 
 	gameBG = loadImage('/Game_1_Background.png');
 	boingsound.setVolume(1); //sets volume of boing sounds to 2

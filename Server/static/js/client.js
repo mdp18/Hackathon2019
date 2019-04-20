@@ -28,6 +28,7 @@ socket.on('ballpos', function() {
 });
 
 socket.on('canplay', function(data) {
-  player_paddle_num = data['player']
+  player_paddle_num = data['player'];
   console.log(`[WebSocket] Joined as paddle ${player_paddle_num}`);
+  
 });
