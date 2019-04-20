@@ -5,12 +5,17 @@ from multiprocessing import Lock
 import random
 import functools
 
+class Player(AnonymousUserMixin):
+  def __init__(self):
+    self.pid = -1
+
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = '/'
+login_manager.anonymous_user = Player
 
 socketio = SocketIO(app, manage_session=False)
 
@@ -54,6 +59,7 @@ def connect_handler():
 
     # Set -1 for watching
     connectedUsers[uuid] = -1
+    current_user.pid = uuid
     playerLock.release()
 
     print(f'[WebSocket] UUID = {uuid}')
@@ -66,8 +72,8 @@ def disconnect_handler():
     global connectedUsers
     
     #Remove uuid
-    if current_user.id in connectedUsers:
-        del connectedUsers[current_user.id]
+    if current_user.pid in connectedUsers:
+        del connectedUsers[current_user.pid]
 
     playerLock.release()
 
@@ -84,7 +90,7 @@ def gamerequest_handler():
         
         # Set them as playing
         nextPlayer = getNextPlayer(playersPlaying)
-        connectedUsers[current_user.id] = nextPlayer
+        connectedUsers[current_user.pid] = nextPlayer
         emit('canplay', { 'player': nextPlayer })
     else:
         print('[WebSocket] Room is full, denial >:D')
