@@ -116,6 +116,7 @@ def paddle_handler(data):
     global connectedUsers
     for pid in connectedUsers:
         if current_user.pid != pid:
+            print (f"Sent to {pid}")
             emit('paddle_data', { 'player': connectedUsers[pid], 'dir': data})
 
     playerLock.release()

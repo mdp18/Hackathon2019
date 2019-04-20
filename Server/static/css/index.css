@@ -11,6 +11,8 @@ body{
 canvas{
   display: block;
   margin: auto;
+  padding: 0;
+  margin: 0;
 }
 
 /* MEDIA CONTENT FOR PHONE ONLY */
