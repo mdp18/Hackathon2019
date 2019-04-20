@@ -89,7 +89,7 @@ function keyChecks() { //use for testing
 		return;
 	}
 
-	playerIdx = playerId - 1
+	let playerIdx = playerId - 1;
 	if (keyIsDown(UP_ARROW) && playerIdx % 2 == 1) {
 		if (playerArray[playerIdx].y > 5) {
 			playerArray[playerIdx].y = playerArray[playerIdx].y - 5;
@@ -121,8 +121,6 @@ function collideCheck() {
 	if (xpos <= 30 && ypos <= playerArray[1].y + 100 && ypos + rad >= playerArray[1].y) {
 		xdirection *= -1;
 	}
-
-
 }
 
 function moveBall() {
