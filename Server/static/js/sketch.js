@@ -90,25 +90,25 @@ function keyChecks() { //use for testing
 	}
 
 	playerIdx = playerId - 1
-	if (keyIsDown(UP_ARROW) && playerId % 2 == 1) { //player 2
+	if (keyIsDown(UP_ARROW) && playerIdx % 2 == 1) {
 		if (playerArray[playerIdx].y > 5) {
 			playerArray[playerIdx].y = playerArray[playerIdx].y - 5;
 		}
 	}
 
-	if (keyIsDown(DOWN_ARROW) && playerId % 2 == 1) { //player 4
+	if (keyIsDown(DOWN_ARROW) && playerIdx % 2 == 1) {
 		if (playerArray[playerIdx].y < (screenHeight - 105)) {
 			playerArray[playerIdx].y = playerArray[playerIdx].y + 5;
 		}
 	}
 
-	if (keyIsDown(LEFT_ARROW) && playerId % 2 == 0) {
+	if (keyIsDown(LEFT_ARROW) && playerIdx % 2 == 0) {
 		if (playerArray[playerIdx].x > 5) {
 			playerArray[playerIdx].x = playerArray[playerIdx].x - 5;
 		}
 	}
 
-	if (keyIsDown(RIGHT_ARROW) && playerId % 2 == 0) {
+	if (keyIsDown(RIGHT_ARROW) && playerIdx % 2 == 0) {
 		if (playerArray[playerIdx].x < (screenWidth - 105)) {
 			playerArray[playerIdx].x = playerArray[playerIdx].x + 5;
 		}
@@ -135,6 +135,7 @@ function moveBall() {
 
 	//calculates the next spot it's gonna go to and says the coord
 	xpos = xpos + xspeed * xdirection;
+
 	//calculates the next spot it's gonna go to and says the coord
 	ypos = ypos + yspeed * ydirection;
 
