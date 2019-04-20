@@ -148,6 +148,6 @@ function keyPressed(){
 
 	if(keyCode == RETURN && xdirection == 0){
 		xdirection = 2.0;
-		Ydirection = 1.0;
+		ydirection = 1.0;
 	}
 }
