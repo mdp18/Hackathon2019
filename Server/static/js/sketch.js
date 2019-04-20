@@ -35,17 +35,17 @@ let ydirection = 1; // Top to Bottom
 function setup() {
 	screenHeight = window.innerHeight;
 	screenWidth = screenHeight;
-	let player1 = new Player('/Server/static/assets/paddle_p1.svg', 0, 0, 'h');
-	let player2 = new Player('/Server/static/assets/paddle_p2.svg', 0, 0, 'v');
-	let player3 = new Player('/Server/static/assets/paddle_p3.svg', 0, screenHeight - 30, 'h');
-	let player4 = new Player('/Server/static/assets/paddle_p4.svg', screenWidth - 30, 0, 'v');
+	let player1 = new Player('paddle_p1.svg', 0, 0, 'h');
+	let player2 = new Player('paddle_p2.svg', 0, 0, 'v');
+	let player3 = new Player('paddle_p3.svg', 0, screenHeight - 30, 'h');
+	let player4 = new Player('paddle_p4.svg', screenWidth - 30, 0, 'v');
 
 	playerArray.push(player1);
 	playerArray.push(player2);
 	playerArray.push(player3);
 	playerArray.push(player4);
 
-	gameBG = loadImage('/Server/static/assets/Game_1_Background.png');
+	gameBG = loadImage('Game_1_Background.png');
 	//boingsound.setVolume(1); //sets volume of boing sounds to 2
 
 	createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
