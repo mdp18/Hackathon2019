@@ -37,6 +37,6 @@ class Physics():
     def run(self):
         while self.simulate:
             self.tick()
-            sleep(1.0 / fps)
+            sleep(1.0 / self.fps)
 
     
