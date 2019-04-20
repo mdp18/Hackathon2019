@@ -29,7 +29,7 @@ playerLock = Lock()
 
 # Create physics engine
 physics = Physics()
-physicsThread = Thread(target = physics.run, args = ())
+physicsThread = Thread(target = physics.run, args = (,))
 
 def getPlayersPlaying():
     global connectedUsers
@@ -103,7 +103,7 @@ def gamerequest_handler():
         emit('canplay', { 'player': nextPlayer })
 
         # Tell them ball location and tick num
-        emit('ballpos', { 'tick': physics.tick, 'x': physics.ballX, 'y': physics.ballY })
+        emit('ballpos', { 'ticks': physics.ticks, 'x': physics.ballX, 'y': physics.ballY })
     else:
         print('[WebSocket] Room is full, denial >:D')
         emit('roomfull')
