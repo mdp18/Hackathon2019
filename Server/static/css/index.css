@@ -5,6 +5,9 @@ body{
 .mobile{
   display: none;
 }
+.mobile-display {
+  display: none;
+}
 canvas{
   display: block;
   margin: auto;
@@ -28,6 +31,5 @@ canvas{
   #control-a {
     width: 50%;
     height: auto;
-
   }
 }
