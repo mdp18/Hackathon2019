@@ -21,6 +21,9 @@ canvas{
   .mobile{
     display: block;
   }
+  .mobile-display {
+    display: block;
+  }
   #controls{
     width: 50%;
     height: auto;
