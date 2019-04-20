@@ -129,10 +129,10 @@ function collideCheck() {
 
 function moveBall() {
 	if (xpos > width - rad || xpos < rad) {
-		//sxdirection *= -1; //bounce the opposite ways
+		xdirection *= -1; //bounce the opposite ways
 	}
 	if (ypos > height - rad || ypos < rad) {
-		//ydirection *= -1;
+		ydirection *= -1;
 	}
 
 	//calculates the next spot it's gonna go to and says the coord
