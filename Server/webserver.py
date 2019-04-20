@@ -113,9 +113,6 @@ def gamerequest_handler():
 def paddle_handler():
     pass
 
-def run_physics():
-    
-
 if __name__ == '__main__':
 
     # Start physics engine
