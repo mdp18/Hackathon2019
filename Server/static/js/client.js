@@ -22,8 +22,8 @@ socket.on('roomfull', function() {
 });
 
 socket.on('ballpos', function() {
-  
-})
+
+});
 
 socket.on('canplay', function(data) {
   console.log('Can play!');

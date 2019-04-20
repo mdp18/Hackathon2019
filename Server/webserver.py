@@ -4,15 +4,6 @@ from flask_socketio import SocketIO, emit, disconnect
 from multiprocessing import Lock
 import functools
 
-def authenticated_only(f):
-    @functools.wraps(f)
-    def wrapped(*args, **kwargs):
-        if not current_user.is_authenticated:
-            disconnect()
-        else:
-            return f(*args, **kwargs)
-    return wrapped
-
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 
@@ -34,11 +25,12 @@ def index():
 def connect_handler():
     emit('welcome')
     print('[WebSocket] Client connected!')
+    print(current_user)
+    print('test')
 
 @socketio.on('disconnect')
 def disconnect_handler():
     print('[WebSocket] Client disconnected.')
-
     playerLock.acquire()
     global playersPlaying
     if len(playersOpen) > 0:

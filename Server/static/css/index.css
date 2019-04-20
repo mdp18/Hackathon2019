@@ -19,10 +19,15 @@ canvas{
     display: block;
   }
   #controls{
-    width: 150px;
+    width: 50%;
     height: auto;
   }
   canvas {
     display: none;
+  }
+  #control-a {
+    width: 50%;
+    height: auto;
+
   }
 }
