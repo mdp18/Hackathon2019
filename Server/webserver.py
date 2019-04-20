@@ -1,9 +1,22 @@
 from flask import Flask, flash, request, render_template
-from flask_socketio import SocketIO, emit
+from flask_login import current_user
+from flask_socketio import SocketIO, emit, disconnect
 from multiprocessing import Lock
+import functools
+
+def authenticated_only(f):
+    @functools.wraps(f)
+    def wrapped(*args, **kwargs):
+        if not current_user.is_authenticated:
+            disconnect()
+        else:
+            return f(*args, **kwargs)
+    return wrapped
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+app.config['SESSION_TYPE'] = 'filesystem'
+
+socketio = SocketIO(app, manage_session=False)
 
 playersOpen = []
 

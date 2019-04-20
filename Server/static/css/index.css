@@ -3,7 +3,7 @@ body{
   background-color: green;
 }
 .mobile{
-  display: hidden;
+  display: none;
 }
 canvas{
   display: block;
@@ -23,6 +23,6 @@ canvas{
     height: auto;
   }
   canvas {
-    display: hidden;
+    display: none;
   }
 }
