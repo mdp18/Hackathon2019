@@ -21,7 +21,6 @@ canvas{
   .mobile{
     display: block;
     padding: 5px;
-    position: fixed;
     bottom: 0px;
   }
   .mobile-display {
