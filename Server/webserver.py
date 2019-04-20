@@ -29,7 +29,7 @@ playerLock = Lock()
 
 # Create physics engine
 physics = Physics()
-physicsThread = Thread(target = physics.run, args = (,))
+physicsThread = Thread(target = physics.run, args = ())
 
 def getPlayersPlaying():
     global connectedUsers

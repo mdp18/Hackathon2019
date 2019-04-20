@@ -16,3 +16,5 @@
                 console.log("portrait")
         }
     });
+
+function lu
