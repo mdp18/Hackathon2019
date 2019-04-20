@@ -16,8 +16,8 @@ class Player {
 	}
 }
 
-var playerId = -1;
-var playerArray = [];
+//var playerId = -1;
+let playerArray = [];
 
 let gameBG; //Game background image variable
 let screenWidth; //Screen width variable recieved from inner
@@ -72,8 +72,8 @@ function draw() {
 	gameBG.resize(300, 300);
 	background(220);
 	image(gameBG, (screenWidth / 2 - 150), (screenHeight / 2 - 150))
-	keyChecks();
-	moveBall();
+	//keyChecks();
+	//moveBall();
 
 	for (let i = 0; i < playerArray.length; i++) {
 		playerArray[i].show();
