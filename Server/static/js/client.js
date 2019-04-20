@@ -9,6 +9,8 @@ console.log('[WebSocket] Connected.');
 socket.emit('gamerequest');
 console.log('[WebSocket] Sending game request.');
 
+var player_paddle_num = -1;
+
 socket.on('welcome', function() {
   console.log("[WebSocket] We are welcome :D");
 });
@@ -26,7 +28,6 @@ socket.on('ballpos', function() {
 });
 
 socket.on('canplay', function(data) {
-  console.log('Can play!');
-  console.log(data);
-  console.log(data['player']);
+  player_paddle_num = data['player']
+  console.log(`[WebSocket] Joined as paddle ${player_paddle_num}`);
 });

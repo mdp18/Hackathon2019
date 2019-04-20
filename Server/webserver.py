@@ -2,6 +2,7 @@ from flask import Flask, flash, request, render_template
 from flask_login import current_user, LoginManager, AnonymousUserMixin
 from flask_socketio import SocketIO, emit, disconnect
 from multiprocessing import Lock
+from physicsengine import Physics
 import random
 import functools
 
@@ -19,8 +20,14 @@ login_manager.anonymous_user = Player
 
 socketio = SocketIO(app, manage_session=False)
 
+# Global Vars
 connectedUsers = {}
+
+# Lock
 playerLock = Lock()
+
+# Create physics engine
+physics = Physics()
 
 def getPlayersPlaying():
     global connectedUsers
@@ -92,11 +99,23 @@ def gamerequest_handler():
         nextPlayer = getNextPlayer(playersPlaying)
         connectedUsers[current_user.pid] = nextPlayer
         emit('canplay', { 'player': nextPlayer })
+
+        # Tell them ball location and tick num
     else:
         print('[WebSocket] Room is full, denial >:D')
         emit('roomfull')
     playerLock.release()
 
+@socketio.on('paddle')
+def paddle_handler():
+    pass
+
 if __name__ == '__main__':
+
+    # Start physics engine
+    physics.start()
+    print("[Physics] Started physics.")
+
+    # Start webserver
     app.debug = True
     socketio.run(app, host="0.0.0.0", port=80)
