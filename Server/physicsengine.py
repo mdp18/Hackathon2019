@@ -31,7 +31,7 @@ class Physics(Process):
         self.ballY = self.ballY + self.ballSpeed * self.ballYDir
 
     def tick(self):
-        moveBall()
+        self.moveBall()
         self.ticks = self.ticks + 1
 
     def movePaddle(paddleNum, direction):
