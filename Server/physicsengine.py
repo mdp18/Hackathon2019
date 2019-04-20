@@ -1,10 +1,7 @@
-from multiprocessing import Process
 from time import sleep
 
-class Physics(Process):
+class Physics():
     def __init__(self):
-        Process.__init__(self)
-        self.daemon = True
         self.run = True
         self.fps = 60.0
         self.ticks = 0  # Number of physics ticks
@@ -34,7 +31,7 @@ class Physics(Process):
         self.moveBall()
         self.ticks = self.ticks + 1
 
-    def movePaddle(paddleNum, direction):
+    def movePaddle(self, paddleNum, direction):
         self.paddles[paddleNum - 1] += self.paddleSpeed * direction
 
     def run(self):

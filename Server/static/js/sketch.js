@@ -114,20 +114,35 @@ function keyChecks() { //use for testing
 	}
 }
 function collideCheck() {
-	// if(ypos+rad <= screenHeight-30 && xpos <= playerArray[0].x+100 && xpos+rad >= playerArray[0].x){
-	//   ydirection *= -1;
-	// }
-	if (xpos <= 30 && ypos <= playerArray[1].y + 100 && ypos + rad >= playerArray[1].y) {
-		xdirection *= -1;
-	}
+
+//BLUE
+if (xpos <= 30 && ypos <= playerArray[1].y + 100 && ypos + rad >= playerArray[1].y) {
+    xdirection *= -1;
+  }
+
+    //ORANGE
+  if (xpos + rad >= screenWidth - 30 && ypos + rad <= playerArray[3].y + 100 && ypos - rad >= playerArray[3].y) {
+    xdirection *= -1;
+  }
+  
+  //RED
+  if (ypos <= 30 && xpos <= (playerArray[0].x + 100) && ypos + rad >= playerArray[0].y) {
+    ydirection *= -1;
+    console.log("bounce!");
+  }
+  //YELLOW
+if (ypos + rad >= screenHeight - 30 && xpos <= (playerArray[0].x + 100) && ypos + rad >= playerArray[0].y) {
+    ydirection *= -1;
+    console.log("bounce!");
+  }
 }
 
 function moveBall() {
 	if (xpos > width - rad || xpos < rad) {
-		xdirection *= -1; //bounce the opposite ways
+		//sxdirection *= -1; //bounce the opposite ways
 	}
 	if (ypos > height - rad || ypos < rad) {
-		ydirection *= -1;
+		//ydirection *= -1;
 	}
 
 	//calculates the next spot it's gonna go to and says the coord

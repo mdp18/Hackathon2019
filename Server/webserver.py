@@ -3,6 +3,7 @@ from flask_login import current_user, LoginManager, AnonymousUserMixin
 from flask_socketio import SocketIO, emit, disconnect
 from multiprocessing import Lock
 from physicsengine import Physics
+from threading import Thread
 import random
 import functools
 
@@ -28,6 +29,7 @@ playerLock = Lock()
 
 # Create physics engine
 physics = Physics()
+physicsThread = Thread(target = physics.run, args = ())
 
 def getPlayersPlaying():
     global connectedUsers
@@ -111,10 +113,13 @@ def gamerequest_handler():
 def paddle_handler():
     pass
 
+def run_physics():
+    
+
 if __name__ == '__main__':
 
     # Start physics engine
-    physics.start()
+    physicsThread.start()
     print("[Physics] Started physics.")
 
     # Start webserver

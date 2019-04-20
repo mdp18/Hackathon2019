@@ -25,12 +25,12 @@ canvas{
     display: block;
   }
   #control-lu{
-    width: 25%;
+    width: 150px;
     height: auto;
     float: left;
   }
   #control-rd{
-    width: 25%;
+    width: 150px;
     height: auto;
     float: left;
   }
@@ -38,12 +38,12 @@ canvas{
     display: none;
   }
   #control-a {
-    width: 25%;
+    width: 150px;
     height: auto;
     float: right;
   }
   #control-b {
-    width: 25%;
+    width: 150px;
     height: auto;
     float: right;
   }
