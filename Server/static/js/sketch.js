@@ -46,7 +46,6 @@ function setup() {
 	playerArray.push(player4);
 
 	gameBG = loadImage('../static/assets/Game_1_Background.png');
-	//boingsound.setVolume(1); //sets volume of boing sounds to 2
 
 	createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
 
