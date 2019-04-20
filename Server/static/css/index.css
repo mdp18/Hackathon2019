@@ -1,6 +1,6 @@
  /* EVERYTHING BELOW IS FOR COMPUTER SCREEN */
 body{
-  background-color: green;
+  background-color: darkslategrey;
 }
 .mobile{
   display: none;
@@ -16,7 +16,7 @@ canvas{
 /* MEDIA CONTENT FOR PHONE ONLY */
 @media only screen and (max-width: 900px) {
   body{
-    background-color: blue;
+    background-color: lightgray;
   }
   .mobile{
     display: block;
@@ -33,8 +33,13 @@ canvas{
     display: none;
   }
   #control-a {
-    width: 50%;
+    width: 25%;
     height: auto;
-    fl
+    float: right;
+  }
+  #control-b {
+    width: 25%;
+    height: auto;
+    float: right;
   }
 }
