@@ -24,35 +24,35 @@ socket.on('roomfull', function() {
 });
 
 socket.on('paddle_data', function(data) {
-  playerId = data['player']
-  playerIdx = playerId - 1
-  if (playerIdx < 0) {
+  themId = data['player']
+  themIdx = themId - 1
+  if (themIdx < 0) {
     return;
   }
 
-  dir = data['dir']
+  let theirdir = data['dir']
 
-  if (dir == 0 && playerIdx % 2 == 1) {
-		if (playerArray[playerIdx].y > 5) {
-			playerArray[playerIdx].y = playerArray[playerIdx].y - 7;
+  if (theirdir == 0 && themIdx % 2 == 1) {
+		if (playerArray[themIdx].y > 5) {
+			playerArray[themIdx].y = playerArray[themIdx].y - 7;
 		}
 	}
 
-	if (dir == 1 && playerIdx % 2 == 1) {
-		if (playerArray[playerIdx].y < (screenHeight - 105)) {
-			playerArray[playerIdx].y = playerArray[playerIdx].y + 7;
+	if (theirdir == 1 && themIdx % 2 == 1) {
+		if (playerArray[themIdx].y < (screenHeight - 105)) {
+			playerArray[themIdx].y = playerArray[themIdx].y + 7;
 		}
 	}
 
-	if (dir == 0 && playerIdx % 2 == 0) {
-		if (playerArray[playerIdx].x > 5) {
-			playerArray[playerIdx].x = playerArray[playerIdx].x - 7;
+	if (theirdir == 0 && themIdx % 2 == 0) {
+		if (playerArray[themIdx].x > 5) {
+			playerArray[themIdx].x = playerArray[themIdx].x - 7;
 		}
 	}
 
-	if (dir == 1 && playerIdx % 2 == 0) {
-		if (playerArray[playerIdx].x < (screenWidth - 105)) {
-			playerArray[playerIdx].x = playerArray[playerIdx].x + 7;
+	if (theirdir == 1 && themIdx % 2 == 0) {
+		if (playerArray[themIdx].x < (screenWidth - 105)) {
+			playerArray[themIdx].x = playerArray[themIdx].x + 7;
 		}
 	}
 });

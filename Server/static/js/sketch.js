@@ -35,10 +35,10 @@ let ydirection = 1; // Top to Bottom
 function setup() {
 	screenHeight = window.innerHeight;
 	screenWidth = screenHeight;
-	var player1 = new Player('../static/assets/paddle_p1.svg', 0, 0, 'h');
-	var player2 = new Player('../static/assets/paddle_p2.svg', 0, 0, 'v');
-	var player3 = new Player('../static/assets/paddle_p3.svg', 0, screenHeight - 30, 'h');
-	var player4 = new Player('../static/assets/paddle_p4.svg', screenWidth - 30, 0, 'v');
+	var player1 = new Player('../static/assets/paddle_p1.svg', 0, screenHeight - 30, 'h');
+	var player2 = new Player('../static/assets/paddle_p2.svg', screenWidth - 30, 0, 'v');
+	var player3 = new Player('../static/assets/paddle_p3.svg', 0, 0, 'h');
+	var player4 = new Player('../static/assets/paddle_p4.svg', 0, 0, 'v');
 
 	playerArray.push(player1);
 	playerArray.push(player2);

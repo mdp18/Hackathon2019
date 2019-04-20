@@ -114,10 +114,7 @@ def paddle_handler(data):
     playerLock.acquire()
 
     global connectedUsers
-    for pid in connectedUsers:
-        if current_user.pid != pid:
-            print (f"Sent to {pid}")
-            emit('paddle_data', { 'player': connectedUsers[pid], 'dir': data})
+    send('paddle_data', { 'player': connectedUsers[pid], 'dir': data})
 
     playerLock.release()
 
