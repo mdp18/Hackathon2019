@@ -119,7 +119,7 @@ def run_physics(args):
 if __name__ == '__main__':
 
     # Start physics engine
-    physicsThread = Thread(target = run_physics, args = ())
+    physicsThread = Thread(target = run_physics, args = (10,))
     physicsThread.start()
     print("[Physics] Started physics.")
 

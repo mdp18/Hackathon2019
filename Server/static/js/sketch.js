@@ -68,7 +68,6 @@ function setup() {
 
 }
 
-
 function draw() {
 	gameBG.resize(300, 300);
 	background(220);
