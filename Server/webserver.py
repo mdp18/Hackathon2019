@@ -3,7 +3,7 @@ from flask_login import current_user, LoginManager, AnonymousUserMixin
 from flask_socketio import SocketIO, emit, disconnect
 from multiprocessing import Lock
 from physicsengine import Physics
-import thread
+import _thread 
 import random
 import functools
 
@@ -119,7 +119,7 @@ def run_physics():
 if __name__ == '__main__':
 
     # Start physics engine
-    thread.start_new_thread(run_physics, ())
+    _thread .start_new_thread(run_physics, ())
     print("[Physics] Started physics.")
 
     # Start webserver
