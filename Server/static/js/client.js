@@ -24,13 +24,13 @@ socket.on('roomfull', function() {
 });
 
 socket.on('paddle_data', function(data) {
-  themId = data['player']
-  themIdx = themId - 1
+  themId = data['player'];
+  themIdx = themId - 1;
   if (themIdx < 0) {
     return;
   }
 
-  let theirdir = data['dir']
+  let theirdir = data['dir'];
 
   if (theirdir == 0 && themIdx % 2 == 1) {
 		if (playerArray[themIdx].y > 5) {
