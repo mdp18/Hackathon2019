@@ -35,17 +35,17 @@ let ydirection = 1; // Top to Bottom
 function setup() {
 	screenHeight = window.innerHeight;
 	screenWidth = screenHeight;
-	let player1 = new Player('../assets/paddle_p1.svg', 0, 0, 'h');
-	let player2 = new Player('../assets/paddle_p2.svg', 0, 0, 'v');
-	let player3 = new Player('../assets/paddle_p3.svg', 0, screenHeight - 30, 'h');
-	let player4 = new Player('../assets/paddle_p4.svg', screenWidth - 30, 0, 'v');
+	let player1 = new Player('/Server/static/assets/paddle_p1.svg', 0, 0, 'h');
+	let player2 = new Player('/Server/static/assets/paddle_p2.svg', 0, 0, 'v');
+	let player3 = new Player('/Server/static/assets/paddle_p3.svg', 0, screenHeight - 30, 'h');
+	let player4 = new Player('/Server/static/assets/paddle_p4.svg', screenWidth - 30, 0, 'v');
 
 	playerArray.push(player1);
 	playerArray.push(player2);
 	playerArray.push(player3);
 	playerArray.push(player4);
 
-	gameBG = loadImage('../assets/Game_1_Background.png');
+	gameBG = loadImage('/Server/static/assets/Game_1_Background.png');
 	//boingsound.setVolume(1); //sets volume of boing sounds to 2
 
 	createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
@@ -66,14 +66,14 @@ function draw() {
 	gameBG.resize(300, 300);
 	background(220);
 	image(gameBG, (screenWidth / 2 - 150), (screenHeight / 2 - 150))
-	//keyChecks();
-	//moveBall();
+	keyChecks();
+	moveBall();
 
 	for (let i = 0; i < playerArray.length; i++) {
 		playerArray[i].show();
 	}
 }
-function keyChecks() { 
+function keyChecks() {
 	// Check for no player
 	if (playerId == -1) {
 		return;
@@ -106,22 +106,22 @@ function keyChecks() {
 }
 function collideCheck() {
 
-//BLUE
-if (xpos <= 30 && ypos <= playerArray[1].y + 100 && ypos + rad >= playerArray[1].y) {
-    xdirection *= -1;
-}
-    //ORANGE
-  if (xpos + rad >= screenWidth - 30 && ypos + rad <= playerArray[3].y + 100 && ypos - rad >= playerArray[3].y) {
-	xdirection *= -1;
-  }
-  //RED
-  if (ypos <= 30 && xpos <= (playerArray[0].x + 100) && ypos + rad >= playerArray[0].y) {
-    ydirection *= -1;
-  }
-  //YELLOW
-if (ypos + rad >= screenHeight - 30 && xpos <= (playerArray[0].x + 100) && ypos + rad >= playerArray[0].y) {
-    ydirection *= -1;
-  }
+	//BLUE
+	if (xpos <= 30 && ypos <= playerArray[1].y + 100 && ypos + rad >= playerArray[1].y) {
+		xdirection *= -1;
+	}
+	//ORANGE
+	if (xpos + rad >= screenWidth - 30 && ypos + rad <= playerArray[3].y + 100 && ypos - rad >= playerArray[3].y) {
+		xdirection *= -1;
+	}
+	//RED
+	if (ypos <= 30 && xpos <= (playerArray[0].x + 100) && ypos + rad >= playerArray[0].y) {
+		ydirection *= -1;
+	}
+	//YELLOW
+	if (ypos + rad >= screenHeight - 30 && xpos <= (playerArray[0].x + 100) && ypos + rad >= playerArray[0].y) {
+		ydirection *= -1;
+	}
 }
 
 function moveBall() {
