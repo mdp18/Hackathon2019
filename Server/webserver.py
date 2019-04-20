@@ -114,7 +114,7 @@ def paddle_handler(data):
     playerLock.acquire()
 
     global connectedUsers
-    send('paddle_data', { 'player': connectedUsers[current_user.pid], 'dir': data})
+    socket.broadcast.emit('paddle_data', { 'player': connectedUsers[current_user.pid], 'dir': data})
 
     playerLock.release()
 
