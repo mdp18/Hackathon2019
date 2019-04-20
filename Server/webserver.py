@@ -110,6 +110,7 @@ def gamerequest_handler():
 
 @socketio.on('paddle')
 def paddle_handler(data):
+    print("GOT paddle!")
     playerLock.acquire()
     global connectedUsers
     for pid in connectedUsers:
