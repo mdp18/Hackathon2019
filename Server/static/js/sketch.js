@@ -33,8 +33,8 @@ let xdirection = 2; // Left or Right
 let ydirection = 1; // Top to Bottom
 
 function preload() {
-	soundFormats('mp3');
-	boingsound = loadSound('../assets/boing2.mp3'); //currently mp3 is set for multiple iterative sounds but should only be set for 1 iteration.
+	//soundFormats('mp3');
+	//boingsound = loadSound('../assets/boing2.mp3'); //currently mp3 is set for multiple iterative sounds but should only be set for 1 iteration.
 }
 
 
@@ -52,7 +52,7 @@ function setup() {
 	playerArray.push(player4);
 
 	gameBG = loadImage('../assets/Game_1_Background.png');
-	boingsound.setVolume(1); //sets volume of boing sounds to 2
+	//boingsound.setVolume(1); //sets volume of boing sounds to 2
 
 	createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
 
