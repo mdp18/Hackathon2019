@@ -26,6 +26,10 @@ socket.on('roomfull', function() {
 socket.on('paddle', function(data) {
   playerId = data['player']
   playerIdx = playerId - 1
+  if (playerIdx < 0) {
+    return;
+  }
+
   dir = data['dir']
 
   if (dir == 0 && playerIdx % 2 == 1) {
