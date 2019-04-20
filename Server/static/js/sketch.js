@@ -81,7 +81,7 @@ function draw() {
 }
 function keyChecks() { 
 	// Check for no player
-	if (playerId == -1) {
+	/*if (playerId == -1) {
 		return;
 	}
 
@@ -108,7 +108,7 @@ function keyChecks() {
 		if (playerArray[playerIdx].x < (screenWidth - 105)) {
 			playerArray[playerIdx].x = playerArray[playerIdx].x + 7;
 		}
-	}
+	}*/
 }
 function collideCheck() {
 

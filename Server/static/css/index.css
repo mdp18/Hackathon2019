@@ -1,6 +1,6 @@
  /* EVERYTHING BELOW IS FOR COMPUTER SCREEN */
 body{
-  background-color: darkslategrey;
+  background-color: rgb(48, 48, 48);
 }
 .mobile{
   display: none;
