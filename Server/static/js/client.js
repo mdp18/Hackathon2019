@@ -23,7 +23,7 @@ socket.on('roomfull', function() {
   socket.disconnect();
 });
 
-socket.on('paddle', function(data) {
+socket.on('paddle_data', function(data) {
   playerId = data['player']
   playerIdx = playerId - 1
   if (playerIdx < 0) {
