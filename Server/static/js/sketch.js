@@ -34,24 +34,24 @@ let ydirection = 1; // Top to Bottom
 
 function preload() {
 	soundFormats('mp3');
-	boingsound = loadSound('../static/assets/boing2.mp3'); //currently mp3 is set for multiple iterative sounds but should only be set for 1 iteration.
+	boingsound = loadSound('../assets/boing2.mp3'); //currently mp3 is set for multiple iterative sounds but should only be set for 1 iteration.
 }
 
 
 function setup() {
 	screenHeight = window.innerHeight;
 	screenWidth = screenHeight;
-	let player1 = new Player('../static/assets/Player_1_Bar.png', 30, 0, 'h');
-	let player2 = new Player('../static/assets/Player_2_VBar.png', 0, 30, 'v');
-	let player3 = new Player('../static/assets/Player_3_Bar.png', 0, screenHeight - 30, 'h');
-	let player4 = new Player('../static/assets/Player_4_VBar.png', screenWidth - 30, 0, 'v');
+	let player1 = new Player('../assets/Player_1_Bar.png', 30, 0, 'h');
+	let player2 = new Player('../assets/Player_2_VBar.png', 0, 30, 'v');
+	let player3 = new Player('../assets/Player_3_Bar.png', 0, screenHeight - 30, 'h');
+	let player4 = new Player('../assets/Player_4_VBar.png', screenWidth - 30, 0, 'v');
 
 	playerArray.push(player1);
 	playerArray.push(player2);
 	playerArray.push(player3);
 	playerArray.push(player4);
 
-	gameBG = loadImage('../static/assets/Game_1_Background.png');
+	gameBG = loadImage('../assets/Game_1_Background.png');
 	boingsound.setVolume(1); //sets volume of boing sounds to 2
 
 	createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
