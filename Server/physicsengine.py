@@ -34,7 +34,7 @@ class Physics():
     def movePaddle(self, paddleNum, direction):
         self.paddles[paddleNum - 1] += self.paddleSpeed * direction
 
-    def run(self, args):
+    def run(self):
         while self.run:
             self.tick()
             sleep(1.0 / fps)

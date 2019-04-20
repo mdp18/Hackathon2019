@@ -1,8 +1,8 @@
-function l_uaction() {
+function lu_action() {
     console.log("left up was pressed");
 }
 
-function r_daction() {
+function rd_action() {
     console.log("right down was pressed");
 }
 
