@@ -4,7 +4,7 @@
 // API https://socket.io/docs/client-api/
 
 console.log('[WebSocket] Trying to connect...');
-var socket = io.connect('http://165.22.143.177:80');
+var socket = io.connect('http://playpongwith.me');
 console.log('[WebSocket] Connected.');
 socket.emit('gamerequest');
 console.log('[WebSocket] Sending game request.');
@@ -24,11 +24,11 @@ socket.on('roomfull', function() {
 });
 
 socket.on('ballpos', function() {
+  // TODO: Set ball position
 
 });
 
 socket.on('canplay', function(data) {
   player_paddle_num = data['player'];
   console.log(`[WebSocket] Joined as paddle ${player_paddle_num}`);
-  
 });

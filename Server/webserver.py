@@ -101,6 +101,7 @@ def gamerequest_handler():
         emit('canplay', { 'player': nextPlayer })
 
         # Tell them ball location and tick num
+        emit('ballpos', { 'tick': physics.tick, 'x': physics.ballX, 'y': physics.ballY })
     else:
         print('[WebSocket] Room is full, denial >:D')
         emit('roomfull')

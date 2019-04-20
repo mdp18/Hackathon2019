@@ -24,8 +24,13 @@ canvas{
   .mobile-display {
     display: block;
   }
-  #controls{
-    width: 50%;
+  #control-lu{
+    width: 25%;
+    height: auto;
+    float: left;
+  }
+  #control-rd{
+    width: 25%;
     height: auto;
     float: left;
   }
