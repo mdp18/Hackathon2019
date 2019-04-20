@@ -2,7 +2,6 @@ from time import sleep
 
 class Physics():
     def __init__(self):
-        self.run = True
         self.fps = 60.0
         self.ticks = 0  # Number of physics ticks
         self.sizePx = 300 # Width Px
@@ -17,6 +16,7 @@ class Physics():
         self.ballXDir = 1
         self.ballYDir = 1
         self.paddles = [ hSz, hSz, hSz, hSz ] # Paddle locations
+        self.simulate = True
 
     def moveBall(self):
         if self.ballX > self.sizePx - self.ballRadPx or self.ballX < self.ballRadPx:
@@ -35,7 +35,7 @@ class Physics():
         self.paddles[paddleNum - 1] += self.paddleSpeed * direction
 
     def run(self):
-        while self.run:
+        while self.simulate:
             self.tick()
             sleep(1.0 / fps)
 
