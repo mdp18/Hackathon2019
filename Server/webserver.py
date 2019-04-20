@@ -114,7 +114,7 @@ def paddle_handler(data):
     playerLock.acquire()
 
     global connectedUsers
-    flask_socketio.broadcast.emit('paddle_data', { 'player': connectedUsers[current_user.pid], 'dir': data})
+    emit('paddle_data', { 'player': connectedUsers[current_user.pid], 'dir': data}, broadcast=True)
 
     playerLock.release()
 
