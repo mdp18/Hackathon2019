@@ -29,8 +29,8 @@ let xpos, ypos; // Starting position of circle
 let xspeed = 5.0; // Speed of the shape
 let yspeed = 5.0; // Speed of the shape
 
-let xdirection = 2; // Left or Right
-let ydirection = 1; // Top to Bottom
+let xdirection = 0; // Left or Right
+let ydirection = 0; // Top to Bottom
 
 function setup() {
 	screenHeight = window.innerHeight;
@@ -142,4 +142,11 @@ function moveBall() {
 	ypos = ypos + yspeed * ydirection;
 
 	circle = ellipse(xpos, ypos, rad, rad);
+}
+
+function keyPressed(){
+	if(keyCode == RETURN){
+		xdirection = 2.0;
+		Ydirection = 1.0;
+	}
 }
