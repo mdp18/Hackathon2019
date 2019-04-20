@@ -109,8 +109,13 @@ def gamerequest_handler():
     playerLock.release()
 
 @socketio.on('paddle')
-def paddle_handler():
-    pass
+def paddle_handler(data):
+    playerLock.acquire()
+    global connectedUsers
+    for pid in connectedUsers:
+        emit('paddle', { 'player': connectedUsers[pid], 'dir': data})
+
+    playerLock.release()
 
 def run_physics():
     physicsEngine.run()

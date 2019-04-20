@@ -23,9 +23,38 @@ socket.on('roomfull', function() {
   socket.disconnect();
 });
 
-socket.on('ballpos', function() {
-  // TODO: Set ball position
+socket.on('paddle', function(data) {
+  playerId = data['player']
+  playerIdx = playerId - 1
+  dir = data['dir']
 
+  if (dir == 0 && playerIdx % 2 == 1) {
+		if (playerArray[playerIdx].y > 5) {
+			playerArray[playerIdx].y = playerArray[playerIdx].y - 7;
+		}
+		socket.emit('paddle', 0)
+	}
+
+	if (dir == 1 && playerIdx % 2 == 1) {
+		if (playerArray[playerIdx].y < (screenHeight - 105)) {
+			playerArray[playerIdx].y = playerArray[playerIdx].y + 7;
+		}
+		socket.emit('paddle', 1)
+	}
+
+	if (dir == 0 && playerIdx % 2 == 0) {
+		if (playerArray[playerIdx].x > 5) {
+			playerArray[playerIdx].x = playerArray[playerIdx].x - 7;
+		}
+		socket.emit('paddle', 0)
+	}
+
+	if (dir == 1 && playerIdx % 2 == 0) {
+		if (playerArray[playerIdx].x < (screenWidth - 105)) {
+			playerArray[playerIdx].x = playerArray[playerIdx].x + 7;
+		}
+		socket.emit('paddle', 1)
+	}
 });
 
 socket.on('canplay', function(data) {

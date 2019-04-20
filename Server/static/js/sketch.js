@@ -84,24 +84,28 @@ function keyChecks() {
 		if (playerArray[playerIdx].y > 5) {
 			playerArray[playerIdx].y = playerArray[playerIdx].y - 7;
 		}
+		socket.emit('paddle', 0)
 	}
 
 	if (keyIsDown(DOWN_ARROW) && playerIdx % 2 == 1) {
 		if (playerArray[playerIdx].y < (screenHeight - 105)) {
 			playerArray[playerIdx].y = playerArray[playerIdx].y + 7;
 		}
+		socket.emit('paddle', 1)
 	}
 
 	if (keyIsDown(LEFT_ARROW) && playerIdx % 2 == 0) {
 		if (playerArray[playerIdx].x > 5) {
 			playerArray[playerIdx].x = playerArray[playerIdx].x - 7;
 		}
+		socket.emit('paddle', 0)
 	}
 
 	if (keyIsDown(RIGHT_ARROW) && playerIdx % 2 == 0) {
 		if (playerArray[playerIdx].x < (screenWidth - 105)) {
 			playerArray[playerIdx].x = playerArray[playerIdx].x + 7;
 		}
+		socket.emit('paddle', 1)
 	}
 }
 function collideCheck() {
