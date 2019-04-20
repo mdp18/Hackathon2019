@@ -80,8 +80,41 @@ function draw() {
 		playerArray[i].show();
 	}
 }
-
+/*
 function keyChecks() { //use for testing
+
+    // Check for no player
+    if (playerId == -1) {
+        return;
+    }
+
+    let playerIdx = playerId - 1;
+    if (keyIsDown(UP_ARROW) && playerIdx % 2 == 1) {
+        if (playerArray[playerIdx].y > 5) {
+            playerArray[playerIdx].y = playerArray[playerIdx].y - 5;
+        }
+    }
+
+    if (keyIsDown(DOWN_ARROW) && playerIdx % 2 == 1) {
+        if (playerArray[playerIdx].y < (screenHeight - 105)) {
+            playerArray[playerIdx].y = playerArray[playerIdx].y + 5;
+        }
+    }
+
+    if (keyIsDown(LEFT_ARROW) && playerIdx % 2 == 0) {
+        if (playerArray[playerIdx].x > 5) {
+            playerArray[playerIdx].x = playerArray[playerIdx].x - 5;
+        }
+    }
+
+    if (keyIsDown(RIGHT_ARROW) && playerIdx % 2 == 0) {
+        if (playerArray[playerIdx].x < (screenWidth - 105)) {
+            playerArray[playerIdx].x = playerArray[playerIdx].x + 5;
+        }
+    }
+}
+*/
+function keyChecks() { 
 
 	// Check for no player
 	if (playerId == -1) {
@@ -118,22 +151,18 @@ function collideCheck() {
 //BLUE
 if (xpos <= 30 && ypos <= playerArray[1].y + 100 && ypos + rad >= playerArray[1].y) {
     xdirection *= -1;
-  }
-
+}
     //ORANGE
   if (xpos + rad >= screenWidth - 30 && ypos + rad <= playerArray[3].y + 100 && ypos - rad >= playerArray[3].y) {
-    xdirection *= -1;
+	xdirection *= -1;
   }
-  
   //RED
   if (ypos <= 30 && xpos <= (playerArray[0].x + 100) && ypos + rad >= playerArray[0].y) {
     ydirection *= -1;
-    console.log("bounce!");
   }
   //YELLOW
 if (ypos + rad >= screenHeight - 30 && xpos <= (playerArray[0].x + 100) && ypos + rad >= playerArray[0].y) {
     ydirection *= -1;
-    console.log("bounce!");
   }
 }
 

@@ -29,7 +29,6 @@ playerLock = Lock()
 
 # Create physics engine
 physics = Physics()
-physicsThread = Thread(target = physics.run, args = ())
 
 def getPlayersPlaying():
     global connectedUsers
@@ -113,9 +112,14 @@ def gamerequest_handler():
 def paddle_handler():
     pass
 
+def run_physics(args);
+    global physics
+    physics.run(args)
+
 if __name__ == '__main__':
 
     # Start physics engine
+    physicsThread = Thread(target = run_physics, args = ())
     physicsThread.start()
     print("[Physics] Started physics.")
 
