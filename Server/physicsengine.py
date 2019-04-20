@@ -10,13 +10,16 @@ class Physics(Process):
         self.ticks = 0  # Number of physics ticks
         self.sizePx = 300 # Width Px
         self.ballRadPx = 20 # Ball Radius 
-        self.ballX = sizePx / 2.0 # Percent of X
-        self.ballY = sizePx / 2.0 # Percent of Y
+
+        hSz = self.sizePx / 2.0
+
+        self.ballX = hSz # Percent of X
+        self.ballY = hSz # Percent of Y
         self.ballSpeed = 5
         self.paddleSpeed = 5
         self.ballXDir = 1
         self.ballYDir = 1
-        self.paddles = [ sizePx / 2.0, sizePx / 2.0, sizePx / 2.0, sizePx / 2.0 ] # Paddle locations
+        self.paddles = [ hSz, hSz, hSz, hSz ] # Paddle locations
 
     def moveBall(self):
         if self.ballX > self.sizePx - self.ballRadPx or self.ballX < self.ballRadPx:
