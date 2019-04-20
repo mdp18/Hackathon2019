@@ -1,127 +1,142 @@
-let player1; //Player 1 horizontal image bar
-let p1x;
-let p1y;
+class Player {
+	constructor(filePath, x, y, orien) {
+		this.filePath = filePath;
+		this.x = x;
+		this.y = y;
+		this.player = loadImage(filePath);
+		this.orientation = orien
+	}
+	show() {
+		image(this.player, this.x, this.y);
+		if (this.orientation == 'h') {
+			this.player.resize(100, 30);
+		} else {
+			this.player.resize(30, 100);
+		}
+	}
+}
 
-let player2; //Player 2 vertical image bar
-let p2x;
-let p2y;
-
-let player3; //Player 3 image bar
-let p3x;
-let p3y;
-
-let player4; //Player 4 vertical image bar
-let p4x;
-let p4y;
+let playerId = -1;
+let playerArray = [];
 
 let gameBG; //Game background image variable
 let screenWidth; //Screen width variable recieved from inner
 let screenHeight; //Screen height var recieved from inner
 
 let rad = 20; // Width of the shape
-let xpos, ypos; // Starting position of shape
+let xpos, ypos; // Starting position of circle
 
 let xspeed = 5.0; // Speed of the shape
 let yspeed = 5.0; // Speed of the shape
 
-let xdirection = 1; // Left or Right
+let xdirection = 2; // Left or Right
 let ydirection = 1; // Top to Bottom
 
-function setup() {
-  
-  player1 = loadImage('../static/assets/Player_1_Bar.png');
-  player2 = loadImage('../static/assets/Player_2_VBar.png');
-  player3 = loadImage('../static/assets/Player_3_Bar.png');
-  player4 = loadImage('../static/assets/Player_4_VBar.png');
-  gameBG = loadImage('../static/assets/Game_1_Background.png');
-  
-  
-  screenHeight = window.innerHeight;
-  screenWidth = screenHeight;
-  
-  p1x = 0;
-  p1y = 0;
-  
-  p2x = 0;
-  p2y = 0;
-  
-  p3x = 0;
-  p3y = screenHeight - 30;
-  
-  p4x = screenWidth - 30;
-  p4y = 0;
-
-
-  createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
-  
-  noStroke(); //disables the drawing of the outline of the ellipse.
-  
-  frameRate(60); //sets frame rate to 60fps. Please Keep!
-  
-  ellipseMode(RADIUS); //Possibly don't need??
-  
-  // Set the starting position of the shape
-  xpos = width / 2;
-  ypos = height / 2;
-  
+function preload() {
+	soundFormats('mp3');
+	boingsound = loadSound('/boing.mp3'); //currently mp3 is set for multiple iterative sounds but should only be set for 1 iteration.
 }
+
+
+function setup() {
+	screenHeight = window.innerHeight;
+	screenWidth = screenHeight;
+	let player1 = new Player('/Player_1_Bar.png', 30, 0, 'h');
+	let player2 = new Player('/Player_2_VBar.png', 0, 30, 'v');
+	let player3 = new Player('/Player_3_Bar.png', 0, screenHeight - 30, 'h');
+	let player4 = new Player('/Player_4_VBar.png', screenWidth - 30, 0, 'v');
+
+	playerArray.push(player1);
+	playerArray.push(player2);
+	playerArray.push(player3);
+	playerArray.push(player4);
+
+
+	gameBG = loadImage('/Game_1_Background.png');
+	boingsound.setVolume(1); //sets volume of boing sounds to 2
+
+	createCanvas(screenWidth, screenHeight); //Canvas Creation w/ 
+
+	noStroke(); //disables the drawing of the outline of the ellipse.
+
+	frameRate(60); //sets frame rate to 60fps. Please Keep!
+
+	ellipseMode(RADIUS); //Possibly don't need??
+
+	// Set the starting position of the ball
+	xpos = width / 2;
+	ypos = height / 2;
+
+}
+
 
 function draw() {
-  gameBG.resize(300,300);
-  background(220);
-  image(gameBG, (screenWidth/2-150), (screenHeight/2 - 150))
-  
+	gameBG.resize(300, 300);
+	background(220);
+	image(gameBG, (screenWidth / 2 - 150), (screenHeight / 2 - 150))
+	keyChecks();
+	moveBall();
 
-  drawPlayers()
-  keyChecks();
-  moveBall();
+	for (let i = 0; i < playerArray.length; i++) {
+		playerArray[i].show();
+	}
 }
 
-function drawPlayers() {
-  image(player1,p1x, p1y);
-  image(player2,p2x, p2y);
-  image(player3,p3x, p3y);
-  image(player4,p4x, p4y);
-  player1.resize(100, 30);
-  player2.resize(30, 100);
-  player3.resize(100, 30);
-  player4.resize(30, 100);
+function keyChecks() { //use for testing
+
+	// Check for no player
+	if (playerId == -1) {
+		return;
+	}
+
+	playerIdx = playerId - 1
+	if (keyIsDown(UP_ARROW) && playerId % 2 == 1) { //player 2
+		if (playerArray[playerIdx].y > 5) {
+			playerArray[playerIdx].y = playerArray[playerIdx].y - 5;
+		}
+	}
+
+	if (keyIsDown(DOWN_ARROW) && playerId % 2 == 1) { //player 4
+		if (playerArray[playerIdx].y < (screenHeight - 105)) {
+			playerArray[playerIdx].y = playerArray[playerIdx].y + 5;
+		}
+	}
+
+	if (keyIsDown(LEFT_ARROW) && playerId % 2 == 0) {
+		if (playerArray[playerIdx].x > 5) {
+			playerArray[playerIdx].x = playerArray[playerIdx].x - 5;
+		}
+	}
+
+	if (keyIsDown(RIGHT_ARROW) && playerId % 2 == 0) {
+		if (playerArray[playerIdx].x < (screenWidth - 105)) {
+			playerArray[playerIdx].x = playerArray[playerIdx].x + 5;
+		}
+	}
+}
+function collideCheck() {
+	// if(ypos+rad <= screenHeight-30 && xpos <= playerArray[0].x+100 && xpos+rad >= playerArray[0].x){
+	//   ydirection *= -1;
+	// }
+	if (xpos <= 30 && ypos <= playerArray[1].y + 100 && ypos + rad >= playerArray[1].y) {
+		xdirection *= -1;
+	}
+
+
 }
 
-function keyChecks(){ //use for testing
-  if(keyIsDown(UP_ARROW)) {
-    if(p2y != 0) {
-      p2y = p2y-5;
-    }
-  }
-  if(keyIsDown(DOWN_ARROW)) {
-    if(p2y != (screenHeight-100)) {
-      p2y = p2y+5;
-    }
-  }
-  if(keyIsDown(LEFT_ARROW)) {
-    if(p1x != 0) {
-      p1x = p1x-5;
-    }
-  }
-  if(keyIsDown(RIGHT_ARROW)) {
-    if(p1x != (screenWidth-100)) {
-      p1x = p1x+5;
-    }
-  }
-}
+function moveBall() {
+	if (xpos > width - rad || xpos < rad) {
+		xdirection *= -1; //bounce the opposite ways
+	}
+	if (ypos > height - rad || ypos < rad) {
+		ydirection *= -1;
+	}
 
-function moveBall(){
-  if (xpos > width - rad || xpos < rad) {
-    xdirection *= -1;
-  }
-  if (ypos > height - rad || ypos < rad) {
-    ydirection *= -1;
-  }
+	//calculates the next spot it's gonna go to and says the coord
+	xpos = xpos + xspeed * xdirection;
+	//calculates the next spot it's gonna go to and says the coord
+	ypos = ypos + yspeed * ydirection;
 
-  xpos = xpos + xspeed * xdirection;
-  ypos = ypos + yspeed * ydirection;
-  
-  
-  ellipse(xpos, ypos, rad, rad);
+	circle = ellipse(xpos, ypos, rad, rad);
 }

@@ -1,4 +1,4 @@
-from multiprocessing import Process, Manager
+from multiprocessing import Process
 from time import sleep
 
 class Physics(Process):
