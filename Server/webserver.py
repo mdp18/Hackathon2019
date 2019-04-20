@@ -112,9 +112,11 @@ def gamerequest_handler():
 def paddle_handler(data):
     print("GOT paddle!")
     playerLock.acquire()
+
     global connectedUsers
     for pid in connectedUsers:
-        emit('paddle', { 'player': connectedUsers[pid], 'dir': data})
+        if current_user.pid != pid:
+            emit('paddle', { 'player': connectedUsers[pid], 'dir': data})
 
     playerLock.release()
 
