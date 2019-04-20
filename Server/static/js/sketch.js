@@ -16,8 +16,8 @@ class Player {
 	}
 }
 
-let playerId = -1;
-let playerArray = [];
+var playerId = -1;
+var playerArray = [];
 
 let gameBG; //Game background image variable
 let screenWidth; //Screen width variable recieved from inner
