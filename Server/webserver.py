@@ -5,7 +5,11 @@ from multiprocessing import Lock
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-playersPlaying = 0
+playersOpen = []
+
+# Add players
+for i in range(4):
+    playersOpen.append(1 + i)
 
 playerLock = Lock()
 
@@ -24,8 +28,8 @@ def disconnect_handler():
 
     playerLock.acquire()
     global playersPlaying
-    if playersPlaying > 0:
-        playersPlaying = playersPlaying - 1
+    if len(playersOpen) > 0:
+        playersOpen
     playerLock.release()
 
 @socketio.on('gamerequest')

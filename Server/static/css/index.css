@@ -5,6 +5,10 @@ body{
 .mobile{
   display: hidden;
 }
+canvas{
+  display: block;
+  margin: auto;
+}
 
 /* MEDIA CONTENT FOR PHONE ONLY */
 @media only screen and (max-width: 900px) {
@@ -17,5 +21,8 @@ body{
   #controls{
     width: 150px;
     height: auto;
+  }
+  canvas {
+    display: hidden;
   }
 }
